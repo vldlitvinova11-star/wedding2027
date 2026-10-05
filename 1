@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дмитрий & Владислава — 29.05.2027</title>
+  <meta name="description" content="Приглашение на свадьбу Дмитрия и Владиславы. 29 мая 2027, Санкт-Петербург">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FDF8F3;
+      --bg-soft: #F9F1E9;
+      --accent: #D32F2F;
+      --accent-dark: #B71C1C;
+      --text: #3D2C2C;
+      --text-light: #6B5555;
+      --line: #E8D9C8;
+      --white: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px 80px;
+      position: relative;
+      background: #FDF8F3;
+      overflow: hidden;
+    }
+
+    .hero-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      margin-bottom: 20px;
+      font-weight: 500;
+      z-index: 2;
+    }
+
+    /* Composition: heart + couple + names */
+    .hero-composition {
+      position: relative;
+      width: min(420px, 92vw);
+      height: min(460px, 70vh);
+      margin: 0 auto 10px;
+    }
+
+    /* Heart – exact SVG from reference */
+    .hero-heart {
+      position: absolute;
+      left: -8%;
+      top: 5%;
+      width: 68%;
+      height: auto;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-heart svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Couple illustration */
+    .hero-couple {
+      position: absolute;
+      right: -2%;
+      bottom: 0;
+      width: 58%;
+      height: auto;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-couple img {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* keep original red line-art look */
+      filter: none;
+    }
+
+    /* Names overlaid on the heart area */
+    .hero-names {
+      position: absolute;
+      left: 38%;
+      top: 22%;
+      z-index: 3;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 7vw, 3.2rem);
+      font-weight: 500;
+      color: #FDF8F3;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      text-align: left;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+      pointer-events: none;
+    }
+
+    .hero-names .amp {
+      font-weight: 400;
+      opacity: 0.9;
+      font-size: 0.7em;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 8px;
+      font-weight: 400;
+      z-index: 2;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: var(--accent);
+      opacity: 0.55;
+      font-size: 1.4rem;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    /* ========== SECTIONS ========== */
+    section {
+      padding: 80px 20px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 40px;
+      opacity: 0.5;
+    }
+
+    .deco-line {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.4;
+      margin: 0 auto 24px;
+    }
+
+    /* Invite text */
+    .invite-text {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--text);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .invite-text p {
+      margin-bottom: 18px;
+    }
+
+    .invite-text .greeting {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    /* Calendar */
+    .calendar-section {
+      background: var(--bg-soft);
+      border-radius: 24px;
+      padding: 50px 30px;
+      text-align: center;
+    }
+
+    .calendar-month {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      max-width: 340px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+    }
+
+    .cal-day-name {
+      color: var(--text-light);
+      font-weight: 500;
+      padding: 6px 0;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .cal-day {
+      padding: 10px 0;
+      border-radius: 50%;
+      color: var(--text-light);
+    }
+
+    .cal-day.highlight {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+    }
+
+    .cal-day.empty {
+      visibility: hidden;
+    }
+
+    /* Location */
+    .location-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(61, 44, 44, 0.06);
+      border: 1px solid var(--line);
+    }
+
+    .location-icon {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    .location-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .location-address {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(211, 47, 47, 0.25);
+    }
+
+    /* Program */
+    .timeline {
+      position: relative;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-time {
+      flex-shrink: 0;
+      width: 58px;
+      height: 58px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      z-index: 1;
+      box-shadow: 0 4px 12px rgba(211, 47, 47, 0.25);
+    }
+
+    .timeline-content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .timeline-content p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Gifts */
+    .gifts-box {
+      background: var(--bg-soft);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .gifts-box p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .countdown-item {
+      background: white;
+      border-radius: 16px;
+      padding: 18px 14px;
+      min-width: 80px;
+      box-shadow: 0 4px 16px rgba(61, 44, 44, 0.06);
+      border: 1px solid var(--line);
+    }
+
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 6px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 60px 20px 80px;
+      background: var(--bg-soft);
+    }
+
+    .footer-heart {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .footer-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .footer-sub {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .hero-composition {
+        height: min(400px, 62vh);
+      }
+      .hero-names {
+        left: 36%;
+        top: 18%;
+        font-size: clamp(1.6rem, 8vw, 2.4rem);
+      }
+      section {
+        padding: 60px 16px;
+      }
+      .timeline::before {
+        left: 24px;
+      }
+      .timeline-time {
+        width: 50px;
+        height: 50px;
+        font-size: 0.72rem;
+      }
+      .countdown-item {
+        min-width: 70px;
+        padding: 14px 10px;
+      }
+      .countdown-num {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .hero-composition {
+        width: 480px;
+        height: 520px;
+      }
+      .hero-names {
+        font-size: 3.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-date">29.05.2027</div>
+
+    <div class="hero-composition">
+      <!-- Heart from reference -->
+      <div class="hero-heart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 345 326" fill="none">
+          <path d="M145.512 17.6695C156.416 26.3435 165.294 38.0856 173.625 52.9916C182.966 38.6963 192.634 27.5954 204.111 19.6949C218.668 9.67309 235.693 4.99892 257.966 5.76878C282.607 6.62046 304.657 16.6987 320.38 32.2964C336.245 48.0352 345.662 69.3574 344.862 92.5224C343.475 132.639 320.801 171.57 287.483 209.907C254.913 247.385 212.058 284.393 169.203 321.399L164.199 325.721L159.504 321.064C119.307 281.187 79.1094 241.309 49.2044 201.672C18.6134 161.125 -1.31889 120.721 0.067693 80.6049C0.868377 57.4397 11.7355 36.8186 28.6492 22.213C45.4116 7.73792 68.1052 -0.793367 92.7456 0.0583047C115.019 0.828176 131.68 6.66643 145.512 17.6695L145.512 17.6695Z" fill="#D32F2F"/>
+        </svg>
+      </div>
+
+      <!-- Couple illustration from reference -->
+      <div class="hero-couple">
+        <img src="assets/couple.png" alt="Дмитрий и Владислава" width="275" height="410">
+      </div>
+
+      <!-- Names overlaid like in the reference -->
+      <div class="hero-names">
+        Дмитрий<br>
+        <span class="amp">&</span><br>
+        Владислава
+      </div>
+    </div>
+
+    <p class="hero-subtitle">Приглашаем вас на нашу свадьбу</p>
+    <div class="scroll-hint">↓</div>
+  </header>
+
+  <!-- INVITE TEXT -->
+  <section>
+    <div class="invite-text">
+      <p class="greeting">Дорогие друзья и близкие!</p>
+      <p>Мы с огромной радостью приглашаем вас разделить с нами этот особенный день и стать частью нашей семейной истории.</p>
+      <p>Ваше присутствие сделает наш праздник ещё теплее и светлее.</p>
+    </div>
+  </section>
+
+  <!-- DATE / CALENDAR -->
+  <section>
+    <div class="calendar-section">
+      <h2 class="section-title" style="margin-bottom: 12px;">Дата</h2>
+      <div class="deco-line"></div>
+      <div class="calendar-month">Май 2027</div>
+      
+      <div class="calendar-grid">
+        <div class="cal-day-name">Пн</div>
+        <div class="cal-day-name">Вт</div>
+        <div class="cal-day-name">Ср</div>
+        <div class="cal-day-name">Чт</div>
+        <div class="cal-day-name">Пт</div>
+        <div class="cal-day-name">Сб</div>
+        <div class="cal-day-name">Вс</div>
+        
+        <!-- May 2027 starts on Saturday -->
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day">1</div>
+        <div class="cal-day">2</div>
+        <div class="cal-day">3</div>
+        <div class="cal-day">4</div>
+        <div class="cal-day">5</div>
+        <div class="cal-day">6</div>
+        <div class="cal-day">7</div>
+        <div class="cal-day">8</div>
+        <div class="cal-day">9</div>
+        <div class="cal-day">10</div>
+        <div class="cal-day">11</div>
+        <div class="cal-day">12</div>
+        <div class="cal-day">13</div>
+        <div class="cal-day">14</div>
+        <div class="cal-day">15</div>
+        <div class="cal-day">16</div>
+        <div class="cal-day">17</div>
+        <div class="cal-day">18</div>
+        <div class="cal-day">19</div>
+        <div class="cal-day">20</div>
+        <div class="cal-day">21</div>
+        <div class="cal-day">22</div>
+        <div class="cal-day">23</div>
+        <div class="cal-day">24</div>
+        <div class="cal-day">25</div>
+        <div class="cal-day">26</div>
+        <div class="cal-day">27</div>
+        <div class="cal-day">28</div>
+        <div class="cal-day highlight">29</div>
+        <div class="cal-day">30</div>
+        <div class="cal-day">31</div>
+      </div>
+
+      <p style="margin-top: 24px; color: var(--text-light); font-size: 0.95rem;">Суббота, 29 мая 2027</p>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section>
+    <h2 class="section-title">Локация</h2>
+    <div class="divider"></div>
+    <div class="location-card">
+      <div class="location-icon">📍</div>
+      <div class="location-name">Банкетный зал «Александровский парк»</div>
+      <p class="location-address">
+        Санкт-Петербург,<br>
+        Александровский парк, 1А<br>
+        <span style="font-size: 0.85rem; opacity: 0.8;">5 минут от метро Горьковская</span>
+      </p>
+      <a href="https://yandex.ru/maps/2/saint-petersburg/house/aleksandrovskiy_park_1a/Z0kYdQdpS0cGQFtjfXV0cnpiYQ==/?ll=30.309221%2C59.953615&z=17" 
+         target="_blank" 
+         rel="noopener" 
+         class="btn">
+        Открыть на карте
+      </a>
+    </div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section>
+    <h2 class="section-title">Программа</h2>
+    <div class="divider"></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">15:30</div>
+        <div class="timeline-content">
+          <h3>Сбор гостей</h3>
+          <p>Welcome-зона, лёгкие напитки и знакомства</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">16:15</div>
+        <div class="timeline-content">
+          <h3>Церемония</h3>
+          <p>Торжественная регистрация брака</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">17:00</div>
+        <div class="timeline-content">
+          <h3>Праздничный ужин</h3>
+          <p>Банкет, тосты и тёплые разговоры</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">22:00</div>
+        <div class="timeline-content">
+          <h3>Завершение вечера</h3>
+          <p>До новых встреч с улыбкой!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIFTS -->
+  <section>
+    <h2 class="section-title">Подарки</h2>
+    <div class="divider"></div>
+    <div class="gifts-box">
+      <p>
+        Мы будем очень рады вашим тёплым пожеланиям в конвертах.<br><br>
+        Пожалуйста, не беспокойтесь о вещах — всё необходимое у нас уже есть.
+      </p>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section style="text-align: center;">
+    <h2 class="section-title">До встречи осталось</h2>
+    <div class="divider"></div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <div class="countdown-num" id="days">—</div>
+        <div class="countdown-label">дней</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="hours">—</div>
+        <div class="countdown-label">часов</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="minutes">—</div>
+        <div class="countdown-label">минут</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="seconds">—</div>
+        <div class="countdown-label">секунд</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-heart">♥</div>
+    <p class="footer-text">До скорой встречи!</p>
+    <p class="footer-sub">Дмитрий & Владислава · 29.05.2027</p>
+  </footer>
+
+  <script>
+    // Countdown to 29 May 2027 15:30
+    const weddingDate = new Date('2027-05-29T15:30:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
